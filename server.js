@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+const cors = require('cors');
 
 const PORT = process.env.PORT || 5000;
 app.use(express.static('public'));
@@ -15,8 +16,14 @@ const downloadRouter = require('./routes/download');
 const connectDB = require('./config/db');
 connectDB();
 
+//cors setup
+const corsOptions = {
+    origin : process.env.ALLOWED_CLIENTS.split(',')                       // splits converts strings to array
+}
+app.use(cors(corsOptions));                     // cors is middleware so we have to use
 
-//SUe a Routers on this server.jss filee
+
+//Use Routers on this server.jss filee
 app.use(fileRouter);
 app.use(showRouter);
 app.use(downloadRouter);
