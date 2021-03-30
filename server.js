@@ -18,7 +18,7 @@ connectDB();
 
 //cors setup
 const corsOptions = {
-    origin : process.env.ALLOWED_CLIENTS.split(',')                       // splits converts strings to array
+    origin : process.env.ALLOWED_CLIENTS.split(',')                      // splits converts strings to array
 }
 app.use(cors(corsOptions));                     // cors is middleware so we have to use
 
