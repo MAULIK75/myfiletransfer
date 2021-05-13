@@ -15,7 +15,7 @@ async function sendMail({ from, to, subject, text, html }) {
 
     //For sending an mail
     let info = await transporter.sendMail({                                               // here the sendMail() is method for nodemailer
-        from:`You got a new file<${from}>`,  
+        from:`File Transfer<${from}>`,  
         to,                             // here key is coming from files.js in sendmail() function and vaalue is coming from this file sendMail()                           
         subject,
         text,
